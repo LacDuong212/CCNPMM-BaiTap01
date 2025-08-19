@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>React App</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="member"></div>
+
+    <script type="text/babel">
+      const myInfo = {
+          path: "avatar.png",
+          name: "Võ Nguyễn Hòa Lạc Dương",
+          birthDate: "02/12/2004",
+          text: "Sinh viên khoa CNTT - HCMUTE"
+      };
+
+      function Avatar(props) {
+          return (
+            <div className="avatar">
+              <img src={props.path} alt="Avatar" />
+            </div>
+          );
+      }
+
+      function Info(props) {
+          return (
+            <div className="info">
+              <h2>{props.name}</h2>
+              <p>Ngày sinh: {props.birthDate}</p>
+            </div>
+          );
+      }
+
+      function Text(props) {
+          return (
+            <div className="text">
+              <p>{props.text}</p>
+            </div>
+          );
+      }
+
+      function Member(){
+          return(
+            <div className="member">
+              <Avatar path={myInfo.path} />
+              <Info name={myInfo.name} birthDate={myInfo.birthDate} />
+              <Text text={myInfo.text} />
+            </div>
+          );
+      };
+      ReactDOM.render(
+        <Member />, 
+        document.getElementById('member')
+      );
+    </script>
+  </body>
+</html>
